@@ -27,3 +27,9 @@ async def get_my_favourite_book():
     return {
         'my books': 'My Favourite Book'
     }
+
+
+#dynamic parameters
+@app.get("/books/{dynamic_param}")
+async def get_all_books(dynamic_param):
+    return {'dynamic_param': dynamic_param}
