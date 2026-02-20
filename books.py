@@ -16,20 +16,15 @@ async def read_all_books():
     return BOOKS
 
 
-@app.get("/books/{book_title}/") #adding decorator to call this function
+@app.get("/books/{book_title}/") #adding decorator to call this function example of dynamic params
 async def read_book(book_title: str): # asycn is not needed in fastapi because it will asycn behine scenes
     for book in BOOKS:
         if book['title'].lower() == book_title.lower():
             return book
+
 
 @app.get("/books/my_books/")
 async def get_my_favourite_book():
     return {
         'my books': 'My Favourite Book'
     }
-
-
-#dynamic parameters
-@app.get("/books/{dynamic_param}")
-async def get_all_books(dynamic_param):
-    return {'dynamic_param': dynamic_param}
